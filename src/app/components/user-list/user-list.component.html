@@ -1,0 +1,5 @@
+<div class="user-list-container">
+  <app-user-header (onSearch)="onSearch($event)" (getAllUsers)="getAllUsers()"></app-user-header>
+  <app-user-table [usersList]="usersList" class="leftBlock"></app-user-table>
+  <app-user-edit class="rightBlock"></app-user-edit>
+</div>

@@ -1,0 +1,152 @@
+.hiddenChangeSaved {
+    margin-top: 10px;
+    text-align: center;
+    color: green;
+}
+
+.searchForm {
+    width: 588px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.buttonSearch {
+    margin-left: 15px;
+    width: 70px;
+    height: 37px;
+}
+
+.buttonRefresh {
+    margin-left: 15px;
+    width: 70px;
+    height: 37px;
+}
+
+.buttonLogout {
+    margin-left: 15px;
+    width: 70px;
+    height: 37px;
+}
+
+.inputText {
+    width: 300px; 
+    padding: 10px; 
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+    border: 1px solid #ccc; 
+    color: rgb(0, 0, 0); 
+    padding-left: 10px; 
+    text-align: center;
+}
+
+.user {
+    margin-bottom: 10px;
+}
+
+.block {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.leftBlock, .rightBlock {
+    float: left;
+    width: 50%;
+}
+
+.userList, .userProfile {
+    margin: 0px auto;
+    width: 300px;
+}
+
+fieldset > .legend {
+    text-align: center;
+}
+
+.userProfile {
+    margin: 0px auto;
+}
+
+.buttonEdit {
+    margin-left: 2px;
+    margin-right: 25px;
+    margin-top: 10px;
+    float: left;    
+    width: 70px;
+    height: 37px;
+}
+
+.buttonConfirm {
+    margin-left: 2px;
+    margin-right: 25px;
+    margin-top: 10px;  
+    float: left; 
+    width: 70px;
+    height: 37px;
+}
+
+.buttonDelete {
+    margin-top: 10px;
+    margin-left: 103px;
+    float: left;    
+    width: 70px;
+    height: 37px;
+}
+
+.buttonDeleteConfirm {
+    margin-left: 103px;
+    margin-top: 10px;
+    float: left;    
+    width: 70px;
+    height: 37px;
+}
+
+.buttonCancelEdit {
+    margin-top: 10px;
+    margin-left: 103px;
+    float: left;    
+    width: 70px;
+    height: 37px;
+}
+
+.buttonCancel {
+    margin-left: 56px;
+    margin-top: 10px;
+    float: left;    
+    width: 70px;
+    height: 37px;
+}
+
+.hiddenTextAlertDelete {
+    text-align: center;
+    margin-top: 55px;
+}
+
+input {
+    width: 219px;
+    padding: 10px; 
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.2); 
+    border: 1px solid #ccc; 
+    color: rgb(0, 0, 0); 
+    padding-left: 10px; 
+}
+
+legend {
+    padding-right: 10px;
+}
+
+b {
+    font-size: 16px;
+}
+
+.alert-danger {
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}
+
+input.ng-touched.ng-invalid {border: solid red 2px;}
+input.ng-touched.ng-valid {border: solid green 2px;}
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }

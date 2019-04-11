@@ -1,0 +1,13 @@
+<div class="userList">
+  <fieldset>
+    <legend class="legend"> User List </legend>
+      <label>
+        <fieldset class="user" *ngFor="let user of usersList">
+          <legend> LogonID: <b>{{user.logonID}}</b> </legend>
+            <label> Name: {{user.name}} </label>
+            <br><br>
+            <label> E-mail: {{user.email}} </label>
+        </fieldset>
+      </label>
+  </fieldset>
+</div>

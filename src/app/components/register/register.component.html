@@ -1,0 +1,50 @@
+<form #registerForm="ngForm" novalidate>
+  <fieldset>
+      <legend> Register form </legend>
+      <label> <p> LogonID </p> 
+        <input type="text" class="form-control" name="logonID" 
+          [(ngModel)]="user.logonID" #logonID="ngModel" pattern="[A-Za-z0-9_]{1,20}" title="Alphanumeric and undscore only" required />
+        <div *ngIf="(logonID.valid || logonID.untouched) && !exist; else hideSelectedLogonID">
+        </div>
+        <ng-template #hideSelectedLogonID>
+          <div class="alert-danger"> LogonID Exist  or Incorrect! </div> 
+        </ng-template>
+      </label>
+  
+      <label> <p> Name </p> 
+        <input type="text" class="form-control" name="name" 
+          [(ngModel)]="user.name" #name="ngModel" pattern="[A-Za-z]{1,20}" title="Alpha only" required />
+        <div *ngIf="name.valid || name.untouched; else hideSelectedName">
+        </div>
+        <ng-template #hideSelectedName>
+          <div class="alert-danger"> Not Exist Name or Incorrect! </div> 
+        </ng-template>
+      </label>
+        
+      <label> <p> Password </p> 
+        <input class="form-control" type="password" name="password" 
+          [(ngModel)]="user.password" #password="ngModel" pattern="[A-Za-z0-9]{6,50}" title="Min 6 symbols length" required />
+        <div *ngIf="password.valid || password.untouched; else hideSelectedPassword">
+        </div>
+        <ng-template #hideSelectedPassword>
+          <div class="alert-danger"> Not Exist Password or Incorrect! </div> 
+        </ng-template>
+      </label>
+        
+      <label> <p> Repeat Password </p> 
+        <input class="form-control" type="password" name="repeatPassword" 
+          [(ngModel)]="user.repeatPassword" #repeatPassword="ngModel" pattern="[A-Za-z0-9]{6,50}" title="Equals password" required />
+        <div *ngIf="(user.password==user.repeatPassword) || repeatPassword.untouched || password.untouched || password.invalid; else hideSelectedRepeatPassword">
+        </div>
+        <ng-template #hideSelectedRepeatPassword>
+          <div class="alert-danger"> Passwords are different! </div> 
+        </ng-template>  
+      </label>
+      
+      <div class="bot_bar">
+        <button [disabled]="registerForm.invalid || !(user.password==user.repeatPassword)" (click)="buttonRegister(user)" class="buttonRegister" >Register</button>
+        <button class="buttonCancel" routerLink="/loginform">Cancel</button>
+      </div>
+  
+  </fieldset>
+  </form>

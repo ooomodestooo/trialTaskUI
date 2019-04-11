@@ -1,0 +1,58 @@
+
+<div class="userProfile">
+    <fieldset>
+        <legend class="legend"> User Profile </legend>
+        <label>
+        <fieldset class="userProf">
+            <legend> LogonID: <b>{{currentUser?.logonID}}</b> </legend>
+            <label> Name: 
+                <br>
+                <input [disabled]="!isEdit" type="text" class="form-control" 
+                        [(ngModel)]="editUser.name" #name="ngModel" pattern="[A-Za-z]{1,20}" title="Alphanumeric and undscore only" required />
+                <div *ngIf="(name.valid || name.untouched) || !cancelButton; else hideSelectedName"></div>
+                <ng-template #hideSelectedName>
+                    <div class="alert-danger"> Incorrect name! </div> 
+                </ng-template>
+            </label>
+            <br>
+            <label> E-mail: 
+                <br>
+                <input [disabled]="!isEdit" class="form-control" type="email" [(ngModel)]="editUser.email" 
+                        #email="ngModel" pattern="[A-Za-z_]+@[A-Za-z_]+\.[A-Za-z_]{2,3}" title="%@%.___" required />
+                <div *ngIf="(email.valid || email.untouched) || !cancelButton; else hideSelectedEmail"></div>
+                <ng-template #hideSelectedEmail>
+                    <div class="alert-danger"> Incorrect email! </div> 
+                </ng-template>
+            </label> 
+                <br>
+            <label> New Password: 
+                <br>
+                <input [disabled]="!isEdit" class="form-control" type="password" [(ngModel)]="editUser.password" 
+                        #password="ngModel" pattern="[A-Za-z0-9]{6,50}" title="Alpha only" required />
+                <div *ngIf="(password.valid || password.untouched) || !cancelButton; else hideSelectedPassword"></div>
+                <ng-template #hideSelectedPassword>
+                    <div class="alert-danger"> Incorrect password! </div> 
+                </ng-template>    
+            </label>
+                <br>
+            <label> Repeat Password: 
+                <br>
+                <input [disabled]="!isEdit" class="form-control" type="password" 
+                        [(ngModel)]="editUser.repeatPassword" #repeatPassword="ngModel" pattern="[A-Za-z0-9]{6,50}" title="Equals password" required />
+                <div *ngIf="((password.valid && (editUser.password != editUser.repeatPassword)) || (repeatPassword.invalid && repeatPassword.touched)); else hideSelectedRepeatPassword">
+                    <div class="alert-danger"> Passwords are different or Incorrect! </div> 
+                </div>
+                <ng-template #hideSelectedRepeatPassword></ng-template>
+            </label>
+        </fieldset>
+        </label>
+        <button [hidden]="isEdit" class="buttonEdit" (click)="onEdit()"> Edit </button>
+        <button [hidden]="isEdit || !hiddenButtonDelete" class="buttonDelete" (click)="buttonDelete()"> Delete Profile </button>
+        <button [hidden]="hiddenButtonDelete || isEdit" class="buttonDeleteConfirm" (click)="onDelete()"> Yes! Delete </button>
+        <button [hidden]="!isEdit" [disabled]="(password.valid && (editUser.password != editUser.repeatPassword)) || name.invalid || email.invalid" class="buttonConfirm" (click)="onSave()"> Save </button>
+        <button [hidden]="!isEdit" class="buttonCancelEdit" (click)="onCancel()"> Cancel </button>
+        <div [hidden]="hiddenChangeSaved" class="hiddenChangeSaved"> Change Saved! </div>
+        <div class="hiddenTextAlertDelete" [hidden]="hiddenButtonDelete"> 
+        <u> Are you sure you want to delete profile? </u></div>
+    </fieldset>
+</div>
